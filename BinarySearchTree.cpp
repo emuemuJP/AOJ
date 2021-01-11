@@ -150,6 +150,31 @@ public:
         if(end->left== NULL) cout << " " << end->key << endl;
         else cout << endl;
     }
+
+    void easyprint(void)
+    {
+        inorder(T);
+        cout << endl;
+        preorder(T);
+        cout << endl;
+    }
+
+    void inorder(Node* n)
+    {
+        if(n==NULL) return;
+        inorder(n->left);
+        cout << " " << n->key;
+        inorder(n->right);
+    }
+
+    void preorder(Node* n)
+    {
+        if(n==NULL) return;
+        cout << " " << n->key;
+        preorder(n->left);
+        preorder(n->right);
+
+    }
 };
 
 int main()
@@ -175,7 +200,8 @@ int main()
         }
         if(order == "print")
         {
-            bst.print();
+            //bst.print();
+            bst.easyprint();
         }
     }
 #ifdef TEST
